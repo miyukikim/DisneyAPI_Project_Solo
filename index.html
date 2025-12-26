@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ Magical Disney Characters ✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Waltograph&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Magical Background Video -->
+    <video id="backgroundVideo" autoplay muted loop playsinline>
+        <source src="background.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Background Music -->
+    <audio id="backgroundAudio" loop>
+        <source src="soundtrack.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Twinkling Stars -->
+    <div class="stars" id="stars"></div>
+
+    <div class="container">
+       <header class="header">
+    <h1>✨ Magical Disney Characters ✨</h1>
+    <div class="header-buttons">
+        <button id="soundToggle" class="btn ghost">🔇 Turn Sound On</button>
+        <button id="themeToggle" class="btn ghost theme-toggle" title="Toggle Dark/Light Mode">🌙</button>
+    </div>
+</header>
+<div class="controls">
+    <div class="search-container">
+        <input type="text" id="searchInput" class="search-box" placeholder="Search characters (e.g. Mickey, Elsa)...">
+        <button id="clearSearchBtn" class="clear-btn" style="display: none;">×</button>
+        <button id="searchBtn" class="btn search-btn">🔍 Search</button>
+    </div>
+
+    <!-- Films Dropdown -->
+    <div class="dropdown-group">
+        <div class="filter-label">🎬 Films:</div>
+        <div class="custom-dropdown">
+            <button class="dropdown-toggle btn" id="filmsDropdownToggle">
+                All <span class="arrow">▼</span>
+            </button>
+            <div class="dropdown-menu" id="filmsDropdownMenu">
+                <div class="dropdown-item active" data-filter="films" data-value="all">All</div>
+                <div class="dropdown-item" data-filter="films" data-value="0-2">0-2 Films</div>
+                <div class="dropdown-item" data-filter="films" data-value="3+">3+ Films</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TV Shows Dropdown -->
+    <div class="dropdown-group">
+        <div class="filter-label">📺 TV Shows:</div>
+        <div class="custom-dropdown">
+            <button class="dropdown-toggle btn" id="tvDropdownToggle">
+                All <span class="arrow">▼</span>
+            </button>
+            <div class="dropdown-menu" id="tvDropdownMenu">
+                <div class="dropdown-item active" data-filter="tv" data-value="all">All</div>
+                <div class="dropdown-item" data-filter="tv" data-value="0-2">0-2 Shows</div>
+                <div class="dropdown-item" data-filter="tv" data-value="3+">3+ Shows</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="load-more-group">
+        <button id="loadMoreBtn" class="btn">Load More Characters</button>
+        <button id="resetBtn" class="btn icon-btn" title="Refresh: Reset filters & search">🔄</button>
+    </div>
+</div>
+
+        <div class="error" id="errorMessage"></div>
+        <div class="loading" id="loading">⏳ Loading magical characters...</div>
+
+        <div class="stats" id="stats"></div>
+
+        <div class="characters-grid" id="charactersGrid"></div>
+
+        <!-- Pagination -->
+        <div class="pagination" id="pagination"></div>
+
+        <!-- Modal -->
+        <div class="modal" id="characterModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title" id="modalTitle">Character Details</div>
+                    <button class="close-btn" id="closeModalBtn">x</button>
+                </div>
+                <div class="modal-body">
+                    <img id="modalImage" class="modal-image" src="" alt="Character">
+                    <div class="modal-section">
+                        <div class="modal-section-title">🎬 Films</div>
+                        <div class="modal-items-list" id="filmsList"></div>
+                    </div>
+                    <div class="modal-section">
+                        <div class="modal-section-title">🎞 Short Films</div>
+                        <div class="modal-items-list" id="shortFilmsList"></div>
+                    </div>
+                    <div class="modal-section">
+                        <div class="modal-section-title">📺 TV Shows</div>
+                        <div class="modal-items-list" id="tvShowsList"></div>
+                    </div>
+                    <div class="modal-section">
+                        <div class="modal-section-title">🎮 Video Games</div>
+                        <div class="modal-items-list" id="videoGamesList"></div>
+                    </div>
+                    <div class="modal-section">
+                        <div class="modal-section-title">🎡 Park Attractions</div>
+                        <div class="modal-items-list" id="parkAttractionsList"></div>
+                    </div>
+                    <div class="modal-section">
+                        <div class="modal-section-title">👥 Allies</div>
+                        <div class="modal-items-list" id="alliesList"></div>
+                    </div>
+                    <div class="modal-section">
+                        <div class="modal-section-title">⚔ Enemies</div>
+                        <div class="modal-items-list" id="enemiesList"></div>
+                    </div>
+                    <div class="modal-section">
+                        <div class="modal-detail-row">
+                            <div class="modal-detail-label">Character ID:</div>
+                            <div id="modalId">N/A</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            Data provided by <a href="https://disneyapi.dev/" target="_blank">Disney API (disneyapi.dev)</a>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
